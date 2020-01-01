@@ -1,13 +1,18 @@
 const express = require('express');
 const routers = express.Router();
 
+// token validation
+const verify = require('../routers/verifyToken');
+
 const Post = require('../models/post');
 
 // Get all back to all posts
-routers.get('/', async (req,res) => {
+routers.get('/',verify , async (req,res) => {
     try {
         const posts = await Post.find();
-        res.json(posts);
+        // res.send(posts);
+
+        res.send(req.user);
     } catch (error) {
         res.json({message:error});
     }
