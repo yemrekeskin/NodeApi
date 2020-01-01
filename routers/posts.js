@@ -2,7 +2,7 @@ const express = require('express');
 const routers = express.Router();
 
 // token validation
-const verify = require('../routers/verifyToken');
+const verify = require('../middlewares/verifyToken');
 
 const Post = require('../models/post');
 
