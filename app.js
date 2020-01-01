@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-require('dotenv/config')
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Middlewares
 // app.use('/',() => {
@@ -16,6 +17,9 @@ app.use(bodyParser.json());
 // Imports routers
 const postsRoute = require('./routers/posts');
 app.use('/posts',postsRoute);
+
+const authRoute = require('./routers/auth');
+app.use('/auth',authRoute);
 
 // Routes
 app.get('/', (req,res) => {
@@ -33,5 +37,5 @@ mongoose.connect(
 // Server listening
 var port = process.env.PORT || 3000;
 app.listen(port, function () {
-  console.log('Server Listening on '+ port);
+  console.log('Server up and running on '+ port);
 });
