@@ -4,7 +4,7 @@ const routers = express.Router();
 // token validation
 const verify = require('../middlewares/verifyToken');
 
-const Post = require('../models/post');
+const Post = require('../models/post.model');
 
 // Get all back to all posts
 routers.get('/',verify , async (req,res) => {
