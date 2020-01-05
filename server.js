@@ -2,19 +2,45 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const compression = require('compression');
+
 
 const server = express();
 
 require('./env.config');
 
-// Middlewares
+// ********************* COMPRESSION
+// compress all responses
+//server.use(compression());
+
+const shouldCompress = (req, res) => {
+  if (req.headers['x-no-compression']) {
+    // don't compress responses if this request header is present
+    return false;
+  }
+
+  // fallback to standard compression
+  return compression.filter(req, res);
+};
+
+server.use(compression({
+  // filter decides if the response should be compressed or not, 
+  // based on the `shouldCompress` function above
+  filter: shouldCompress,
+  // threshold is the byte threshold for the response body size
+  // before compression is considered, the default is 1kb
+  threshold: 0
+}));
+
+
+// **************** MIDDLEWARES
 // server.use('/',() => {
 //     console.log('This is a middleware running')
 // }); 
 server.use(cors());
 server.use(bodyParser.json());
 
-// Imports routers
+// ***************** IMPORT ROUTERS
 const postsRoute = require('./routers/post.routers');
 server.use('/posts', postsRoute);
 
@@ -23,12 +49,12 @@ server.use('/auth', authRoute);
 
 require('./routers/note.routers')(server);
 
-
-// Routes
+// ***************** MAIN ROUTERS
 server.get('/', (req, res) => {
   res.send('Hello World From NodeApi');
 });
 
+// ***************** DATABASE CONNECTION
 // Connect to the Database
 mongoose.connect(
   process.env.DB_CONNECTION,
@@ -41,6 +67,7 @@ mongoose.connect(
 });
 
 
+// ************************ SERVER UP
 // Server listening
 var port = process.env.PORT || 3000;
 server.listen(port, function () {
