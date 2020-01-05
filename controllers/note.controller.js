@@ -31,8 +31,6 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
 
     Note.find()
-        .limit(parseInt(req.query.limit))
-        .skip(parseInt(req.query.skip))
         .then(notes => {
             res.send(notes);
         }).catch(err => {

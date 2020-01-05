@@ -2,11 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const dotenv = require('dotenv');
-
-dotenv.config();
 
 const server = express();
+
+require('./env.config');
 
 // Middlewares
 // server.use('/',() => {
@@ -46,4 +45,5 @@ mongoose.connect(
 var port = process.env.PORT || 3000;
 server.listen(port, function () {
   console.log('Server up and running on ' + port);
+  // console.log(process.env.NODE_ENV);
 });
