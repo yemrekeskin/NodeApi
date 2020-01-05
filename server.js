@@ -4,10 +4,20 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const compression = require('compression');
 
+const morgan = require('morgan');
+const logger = require('./util/logger');
+
 
 const server = express();
 
+// ********************* CONFIG
 require('./env.config');
+
+// ********************* LOGGING
+// server.use(morgan('tiny'));
+// server.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+// server.use(morgan("combined", { "stream": logger.stream.write }));
+server.use(morgan('combined', { stream: logger.stream }));
 
 // ********************* COMPRESSION
 // compress all responses
@@ -52,6 +62,10 @@ require('./routers/note.routers')(server);
 // ***************** MAIN ROUTERS
 server.get('/', (req, res) => {
   res.send('Hello World From NodeApi');
+});
+
+server.get('/healthcheck', function (req, res) {
+  res.status(200).send();
 });
 
 // ***************** DATABASE CONNECTION

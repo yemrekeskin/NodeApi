@@ -9,9 +9,9 @@ const Post = require('../models/post.model');
 routers.get('/', verify, async (req, res) => {
     try {
         const posts = await Post.find();
-        // res.send(posts);
+        res.send(posts);
 
-        res.send(req.user);
+        // res.send(req.user);
     } catch (error) {
         res.json({ message: error });
     }
