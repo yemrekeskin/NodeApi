@@ -59,6 +59,8 @@ server.use('/auth', authRoute);
 
 require('./routers/note.routers')(server);
 
+require('./routers/currency.router')(server);
+
 // ***************** MAIN ROUTERS
 server.get('/', (req, res) => {
   res.send('Hello World From NodeApi');
