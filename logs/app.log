@@ -1,7 +1,6 @@
-{"message":"::1 - - [05/Jan/2020:20:48:56 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [05/Jan/2020:20:49:01 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [05/Jan/2020:20:49:04 +0000] \"GET / HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [05/Jan/2020:20:49:09 +0000] \"GET /healthcheck HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [05/Jan/2020:20:49:14 +0000] \"GET /foo HTTP/1.1\" 404 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.88 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [19/Jan/2020:20:17:46 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36\"\n","level":"info"}
-{"message":"::1 - - [19/Jan/2020:20:17:46 +0000] \"GET /favicon.ico HTTP/1.1\" 404 - \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.117 Safari/537.36\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:21:54 +0000] \"GET /notes/5e0d00efe2d2b404d4703c1e HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:22:00 +0000] \"GET /notes HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:34:11 +0000] \"GET /posts HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:34:20 +0000] \"GET /posts HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:34:27 +0000] \"GET /posts HTTP/1.1\" 400 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}
+{"message":"::1 - - [14/Feb/2020:20:34:30 +0000] \"GET /posts HTTP/1.1\" 200 - \"-\" \"PostmanRuntime/7.21.0\"\n","level":"info"}

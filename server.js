@@ -86,5 +86,5 @@ mongoose.connect(
 var port = process.env.PORT || 3000;
 server.listen(port, function () {
   console.log('Server up and running on ' + port);
-  // console.log(process.env.NODE_ENV);
+  //console.log(process.env.NODE_ENV);
 });
