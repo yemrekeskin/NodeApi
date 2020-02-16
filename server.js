@@ -10,6 +10,37 @@ const logger = require('./util/logger');
 
 const server = express();
 
+// ********************* STORAGE - FILE
+var multer = require('multer');
+// var crypto = require('crypto');
+var path = require('path');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, 'public/images/uploads')
+  },
+  filename: function (req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+  }
+});
+
+var upload = multer({ storage: storage });
+
+server.post('/upload', upload.single('avatar'), (req, res) => {
+  if (!req.file) {
+    console.log("No file received");
+    return res.send({
+      success: false
+    });
+
+  } else {
+    console.log('file received');
+    return res.send({
+      success: true
+    })
+  }
+});
+
 // ********************* CONFIG
 require('./env.config');
 
